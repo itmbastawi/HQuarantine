@@ -15,23 +15,28 @@ class service_table(models.Model):
     created_user = models.ForeignKey(User,on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
 
-action_list=(
-            ('A','Accepted'),
-            ('b','buy'),
-            ('d','delivered')
-            )
+class action_list(models.Model):
+    name=models.CharField(max_length=25)
+
+time_list =[
+    (10,'10 دقايق'),
+    (15, '15 دقيقة'),
+    (30 , 'نصف ساعة'),
+    (60 , 'ساعة'),
+    (120 ,'ساعتين')
+]
 
 class item_action(models.Model):
-    name = models.CharField(max_length=5,choices=action_list)
+    action_id = models.ForeignKey(action_list,on_delete=models.CASCADE)
     service_id = models.ForeignKey(service_table,on_delete=models.CASCADE)
-    delivery_time = models.DateTimeField()
+    delivery_time  = models.CharField(max_length=5,choices=time_list)
     created_user = models.ForeignKey(User,on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
 
 
 class user_profile(models.Model):
-    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+    user_id = models.OneToOneField(User,on_delete=models.CASCADE)
     mobile = models.CharField(max_length=15)
     address = models.TextField()
-    photo =  models.FileField(upload_to='uploads/')
+    photo =  models.ImageField(default='avatar.jpg',upload_to='profile')
     created_on = models.DateTimeField(auto_now_add=True)

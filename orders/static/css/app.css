@@ -2,14 +2,21 @@
 
 
 
+.main-body{
+  min-height: 78vh;
+}
 
+#addNew{
+color:#2A73cc;
+position: fixed;
+right: 3px;
+bottom: 70px;
+background-color: white;
+}
+#addNew:hover{
+  bottom: 75px;
 
-
-
-
-
-
-
+}
 
 
 
@@ -17,8 +24,7 @@
 
 
 footer{
-  position: absolute;
-  bottom: 0;
+ 
   background-color: #2A73cc;
   width: 100%;
 }

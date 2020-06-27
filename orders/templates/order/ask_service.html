@@ -1,0 +1,67 @@
+{%  extends "layout.html"  %}
+
+{% block title %}Order Home{% endblock %}
+
+{% block content %}
+<div class="container-md">
+  <div class="row py-3">
+  <!-- right -->
+   <div class='col-md-3 d-none d-md-block'>
+      <img src="..." alt="..." class="img-thumbnail">
+      <div class="list-group">
+        <a href="{% url 'profile' %}" class="list-group-item list-group-item-action active">
+         تعديل الملف الشخصي
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">طلب خدمة جديدة</a>
+        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+        <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
+      </div>
+   </div>
+  <!-- center -->
+   <div class='col-md-6 col-sm-12'>
+  <!-- check new servic & inprocess -->
+  <div class="row justify-content-around py-2">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name='service' type="radio" id="newService" value="new" checked>
+      <label class="form-check-label  bg-info text-white p-1 rounded" for="newService">New Service</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name='service' type="radio" id="inProcess" value="inprocess">
+      <label class="form-check-label  bg-success text-white p-1 rounded" for="inProcess">Service Inprocess</label>
+    </div>
+  </div>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+   <!-- left -->
+   <div class="col-md-3 d-none d-md-block  ">
+     ملاحظات
+   </div>
+  </div>
+<span id="addNew" class="shadow rounded-circle  d-md-none" >
+  <i class="fas fa-plus-circle fa-3x"></i>
+</span>
+  
+</div>
+
+{% endblock %}
+
+{% block jscript %}
+<script>
+
+
+</script>
+{% endblock %}

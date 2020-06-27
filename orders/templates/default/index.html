@@ -1,6 +1,39 @@
 {%  extends "layout.html"  %}
 
-{% block title %} index{% endblock %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container ">
+  <div class="row justify-content-around ">
+    <div class="col-12 col-md-5 mt-4 text-right ">
+      <div class="card shadow-lg">
+        <h4 class="card-header">
+          اهلا بيك في المساعده فى الحجر
+        </h4>
+        {% if user.is_authenticated %}
+          <div class="card-body">
+            <h5 class="card-title">سجل  </h5>
+            <p class="card-text">{{group}}</p>
+            <a href="{% url 'login'%}" class="btn btn-primary"> الصفحة الشخصية</a>
+          </div>
+        {% else %}
+          <div class="card-body">
+            <h5 class="card-title">سجل معنا</h5>
+            <p class="card-text">نقوم بالمساعدة للحفاظ على بعضنا البعض</p>
+            <a href="{% url 'login'%}" class="btn btn-primary">تفضل بالدخول</a>
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 
-{% block content %} user posts {% endblock %}
+
+
+
+
+{% endblock %}

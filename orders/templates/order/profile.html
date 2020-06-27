@@ -1,0 +1,27 @@
+{%  extends "layout.html"  %}
+
+{% block title %}{{user}} Profile{% endblock %}
+
+{% block content %}
+<div class="container-md">
+    <div class="row py-3">
+    <div class="col-md-3">
+        {{form.instance.photo.url}}
+        <img src="{{form.instance.photo.url}}" width="250" height="250"  >
+        
+    </div>
+      <div class="col-md-9">
+          <div class="card">
+              <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-primary" name='update'>
+
+              </form>
+          </div>
+      </div>  
+
+    </div>
+</div>
+
+{% endblock %}

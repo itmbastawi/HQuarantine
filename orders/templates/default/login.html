@@ -1,0 +1,33 @@
+{%  extends "layout.html"  %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container ">
+  <div class="row justify-content-around ">
+    <div class="col-12 col-md-5 mt-4 text-right ">
+      <div class="card shadow-lg">
+        <h4 class="card-header">
+          تسجيل الدخول
+        </h4>
+        <div class="card-body text-left" dir='ltr' >
+       <form class='form-group'  action="" method='POST' >
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button type="submit"  class="btn btn-primary" name="button">دخول</button>
+          
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{%  extends "layout.html"  %}
+{% load crispy_forms_tags %}
+
+{% block title %}registration{% endblock %}
+
+{% block content %}
+<div class="container m">
+  <div class="row justify-content-around py-3">
+
+    <div class="col-12 col-md-6 text-right ">
+      <div class="card shadow-lg">
+        <h4 class="card-header">
+          تسجيل المشتركين
+        </h4>
+        <div class="card-body text-left" dir="ltr">
+          <form class="form-group" action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button  class="btn btn-primary" type="submit" name="button">تسجيل</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

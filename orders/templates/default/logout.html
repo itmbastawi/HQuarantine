@@ -1,0 +1,26 @@
+{%  extends "layout.html"  %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container ">
+  <div class="row justify-content-around ">
+    <div class="col-12 col-md-5 mt-4 text-right ">
+      <div class="card shadow-lg">
+        <h4 class="card-header">
+      تم تسجيل الخروج
+        </h4>
+        <div class="card-body">
+
+          <p class="card-text">شكرا</p>
+          <a href="{% url 'login' %}" class="btn btn-primary">تسجيل دخول </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
