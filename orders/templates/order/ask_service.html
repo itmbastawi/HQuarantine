@@ -1,4 +1,5 @@
 {%  extends "layout.html"  %}
+{% load crispy_forms_tags %}
 
 {% block title %}Order Home{% endblock %}
 
@@ -8,48 +9,78 @@
   <!-- right -->
   {% include 'right_bar.html' %}        
   <!-- center -->
-  <div class='col-md-6 col-sm-12'>
-  <!-- check new servic & inprocess -->
-  <div class="row justify-content-around py-2">
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name='service' type="radio" id="newService" value="new" checked>
-      <label class="form-check-label  bg-info text-white p-1 rounded" for="newService">New Service</label>
+    <div class='col-md-6 col-sm-12'>
+    <!-- check new servic & inprocess -->
+    <div class="row justify-content-around py-2">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name='service' type="radio" id="newService" value="new" checked>
+        <label class="form-check-label  bg-info text-white p-1 rounded" for="newService">New Service</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name='service' type="radio" id="inProcess" value="inprocess">
+        <label class="form-check-label  bg-success text-white p-1 rounded" for="inProcess">Service Inprocess</label>
+      </div>
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name='service' type="radio" id="inProcess" value="inprocess">
-      <label class="form-check-label  bg-success text-white p-1 rounded" for="inProcess">Service Inprocess</label>
-    </div>
-  </div>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="..." class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="#" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-   </div>
    <!-- left -->
-   <div class="col-md-2 d-none d-md-block  ">
-     ملاحظات
+   <div class="col-md-2 d-none d-md-block">
+     <button class="btn btn-info"
+                  data-toggle="modal" data-target="#exampleModal">
+      إضافة طلب         
+      </button>
    </div>
   </div>
-<span id="addNew" class="shadow rounded-circle  d-md-none" >
-  <i class="fas fa-plus-circle fa-3x"></i>
-</span>
+
+
+  <span id="addNew" class="shadow rounded-circle  d-md-none"
+           data-toggle="modal" data-target="#exampleModal" >
+    <i class="fas fa-plus-circle fa-3x"></i>
+  </span>
   
+  <div class="modal fade text-right " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">إضافت طلب جديد</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+           
+              {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">طلب خدمة</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}
 
 {% block jscript %}
-<script>
+<script> 
 
 
 </script>

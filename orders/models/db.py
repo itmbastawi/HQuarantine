@@ -7,19 +7,32 @@ from PIL import Image
 
 class item_type(models.Model):
     name = models.CharField(max_length=30)
+    def __str__(self):
+
+        return self.name
+
 
 class service_table(models.Model):
     type_id = models.ForeignKey(item_type,on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     quantity= models.IntegerField()
     notes = models.TextField()
-    stop = models.BooleanField()
+    stop = models.BooleanField(default=False)
     created_user = models.ForeignKey(User,on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+
+        return self.name
+
+
 class action_list(models.Model):
     name=models.CharField(max_length=25)
+    def __str__(self):
 
+        return self.name
+
+        
 time_list =[
     (10,'10 دقايق'),
     (15, '15 دقيقة'),

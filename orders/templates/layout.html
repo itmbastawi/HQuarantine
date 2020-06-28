@@ -25,6 +25,9 @@
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'profile' %}">Profile <span class="sr-only">(current)</span></a>
+          </li>
         </ul>
           <ul  class="navbar-nav mr-auto">
           {% if user.is_authenticated %}
