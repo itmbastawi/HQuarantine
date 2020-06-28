@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
+
 # Create your models here.
 
 
@@ -40,3 +42,10 @@ class user_profile(models.Model):
     address = models.TextField()
     photo =  models.ImageField(default='avatar.jpg',upload_to='profile')
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+            super().save(*args, **kwargs)
+            img = Image.open(self.photo.path)
+            output_size = (300, 350)
+            img.thumbnail(output_size)
+            img.save(self.photo.path)

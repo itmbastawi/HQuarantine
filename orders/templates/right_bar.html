@@ -1,0 +1,20 @@
+<div class='col-md-3 d-none d-md-block text-right ml-4'>
+  <div class="card" style="width: 18rem;">
+    <img src="{{user.user_profile.photo.url}}" alt="photo" height="250rem">
+    <div class="card-body">
+      <h5 class="card-title"> اسم المستخدم : {{user.username}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">موبيل : {{user.user_profile.mobile}}</li>
+      <li class="list-group-item">العنوان : {{user.user_profile.address}}</li>
+    </ul>
+    {% if 'profile' in request.path %}
+    <a href="{% url 'index' %}" class="btn btn-secondary">
+      الغاء التعديل
+    {% else %}
+    <a href="{% url 'profile' %}" class="btn btn-warning">
+      تعديل البيانات
+    {% endif %}
+    </a>
+  </div>
+</div>

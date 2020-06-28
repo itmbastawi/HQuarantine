@@ -6,20 +6,9 @@
 <div class="container-md">
   <div class="row py-3">
   <!-- right -->
-   <div class='col-md-3 d-none d-md-block'>
-      <img src="..." alt="..." class="img-thumbnail">
-      <div class="list-group">
-        <a href="{% url 'profile' %}" class="list-group-item list-group-item-action active">
-         تعديل الملف الشخصي
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">طلب خدمة جديدة</a>
-        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
-      </div>
-   </div>
+  {% include 'right_bar.html' %}        
   <!-- center -->
-   <div class='col-md-6 col-sm-12'>
+  <div class='col-md-6 col-sm-12'>
   <!-- check new servic & inprocess -->
   <div class="row justify-content-around py-2">
     <div class="form-check form-check-inline">
@@ -47,7 +36,7 @@
     </div>
    </div>
    <!-- left -->
-   <div class="col-md-3 d-none d-md-block  ">
+   <div class="col-md-2 d-none d-md-block  ">
      ملاحظات
    </div>
   </div>
